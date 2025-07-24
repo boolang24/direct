@@ -1,4 +1,4 @@
-let ipLog = {}; // Penyimpanan sementara di RAM
+let ipLog = {}; // RAM only
 
 export default function handler(req, res) {
   if (req.method !== "POST") {
