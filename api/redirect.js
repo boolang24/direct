@@ -4,7 +4,7 @@ export default async function handler(req, res) {
 
   const today = new Date().toISOString().split("T")[0];
 
-  const endpoint = `https://my-api-nu-three.vercel.app/api/log-ip`; // endpoint log kamu
+  const endpoint = `https://direct-fevz.vercel.app/api/log-ip`; // endpoint log kamu
 
   try {
     // cek apakah IP sudah klik hari ini
