@@ -1,20 +1,19 @@
-let ipLog = {}; // RAM only
+let ipLog = {}; // penyimpanan sementara di memori (hilang kalau server restart)
 
 export default function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  const ip =
+    req.headers["x-forwarded-for"]?.split(",")[0] || req.connection.remoteAddress;
+  const today = new Date().toISOString().split("T")[0];
+
+  if (req.method === "GET") {
+    const logged = ipLog[ip] === today;
+    return res.status(200).json({ logged });
   }
 
-  const { ip, date } = req.body;
-
-  if (!ip || !date) {
-    return res.status(400).json({ error: "IP and date required" });
+  if (req.method === "POST") {
+    ipLog[ip] = today;
+    return res.status(200).json({ success: true });
   }
 
-  if (!ipLog[ip] || ipLog[ip] !== date) {
-    ipLog[ip] = date;
-    return res.status(200).json({ allowed: true });
-  } else {
-    return res.status(200).json({ allowed: false });
-  }
+  return res.status(405).json({ error: "Method not allowed" });
 }
