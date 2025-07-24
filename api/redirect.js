@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     if (data.logged) {
       // Sudah klik hari ini ➜ langsung ke konten tanpa iklan
-      return res.redirect(302, "https://yourcontentlink.com");
+      return res.redirect(302, "https://verbalimpliedgorilla.com/h0fybswz?key=e5a9a54ad6d3ed789e88b81c126595ba");
     }
 
     // Belum klik ➜ log IP dan redirect ke iklan
