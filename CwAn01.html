@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIDEO</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin-bottom: 15px;
+      background: #111;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .container h3 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .play-button::before {
+      content: "▶";
+      color: #000;
+      font-size: 2.5rem;
+      margin-left: 5px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(20, 20, 20, 0.9);
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+
+    .time {
+      margin-right: 10px;
+      font-family: monospace;
+      color: #fff;
+    }
+
+    .progress {
+      flex: 1;
+      height: 4px;
+      background: #555;
+      border-radius: 2px;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .progress::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .icons {
+      display: flex;
+      gap: 12px;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    /* Footer Info */
+    .footer-info {
+      color: #ccc;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <!-- Box untuk Native Ads -->
+  <div class="container">
+    <div id="container-3cb3541af4774ece06527691f68755a2"></div>
+    <script async src="//thermometerpushfulabnegate.com/3cb3541af4774ece06527691f68755a2/invoke.js"></script>
+  </div>
+
+  <!-- Box untuk Video Player -->
+  <div class="container">
+    <div class="player" id="player">
+      <img src="https://img.lulucdn.com/9hqvska3apg6_t.jpg" alt="Thumbnail" class="thumbnail">
+      <div class="play-button"></div>
+      <div class="controls">
+        <div class="time">0:00 / 5:15</div>
+        <div class="progress"></div>
+        <div class="icons">
+          <span></span>
+          <span>⛶</span>
+          <span>⋮</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Info -->
+  <div class="footer-info">
+   ⚠️ Please do not skip the ads if you want the video to start playing.
+  </div>
+
+  <!-- Script Redirect -->
+  <script>
+    const redirectUrl = "https://thermometerpushfulabnegate.com/cbh2pksn04?key=df271cf76c6713cc96cf53ec38d2c6c2";
+
+    function goRedirect() {
+      window.location.href = redirectUrl;
+    }
+
+    // Redirect jika user kembali (Back/Forward)
+    if (performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      goRedirect();
+    }
+
+    // Redirect otomatis setiap kali halaman dimuat (5 detik)
+    setTimeout(() => {
+      goRedirect();
+    }, 10000);
+
+    // Redirect jika klik player
+    document.getElementById("player").addEventListener("click", () => {
+      goRedirect();
+    });
+  </script>
+
+  <script type='text/javascript' src='//thermometerpushfulabnegate.com/45/9e/76/459e765702f30f8ce562aac03bf9535b.js'></script>
+</body>
+</html>
