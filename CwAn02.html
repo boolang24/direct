@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background: #000;
+      background: #111;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -20,17 +20,10 @@
       width: 90%;
       max-width: 600px;
       margin-bottom: 15px;
-      background: #111;
+      background: #1e1e1e;
       border-radius: 8px;
       padding: 10px;
       box-sizing: border-box;
-    }
-
-    .container h3 {
-      color: #fff;
-      font-size: 16px;
-      margin-bottom: 8px;
-      text-align: center;
     }
 
     .player {
@@ -99,17 +92,6 @@
       margin-right: 10px;
     }
 
-    .progress::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #fff;
-    }
-
     .icons {
       display: flex;
       gap: 12px;
@@ -117,30 +99,53 @@
       color: #fff;
     }
 
-    /* Footer Info */
+    /* Countdown */
+    .countdown {
+      text-align: center;
+      color: #ffcc00;
+      font-size: 18px;
+      margin-top: 10px;
+      display: none;
+    }
+
     .footer-info {
       color: #ccc;
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       margin-top: 10px;
       font-style: italic;
     }
+    .native-ads-wrapper {
+  max-width: 320px;       /* Batas ukuran maksimal */
+  margin: 15px auto;      /* Tengah secara horizontal */
+  padding: 8px;           /* Sedikit padding biar rapi */
+  background: #1e1e1e;    /* Warna abu kehitaman */
+  border-radius: 10px;    /* Sudut melengkung */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek shadow */
+}
+.native-ads-wrapper iframe {
+  width: 100% !important; /* Pastikan responsive */
+  height: auto !important;
+}
   </style>
 </head>
 <body>
-  <!-- Box untuk Native Ads -->
-  <div class="container">
-    <div id="container-3cb3541af4774ece06527691f68755a2"></div>
-    <script async src="//thermometerpushfulabnegate.com/3cb3541af4774ece06527691f68755a2/invoke.js"></script>
-  </div>
+    
+    
+ 
+<!-- Native Ads -->
+<div class="native-ads-wrapper">
+  <div id="container-3cb3541af4774ece06527691f68755a2"></div>
+  <script async src="//thermometerpushfulabnegate.com/3cb3541af4774ece06527691f68755a2/invoke.js"></script>
+</div>
 
-  <!-- Box untuk Video Player -->
+  <!-- Video Player -->
   <div class="container">
-    <div class="player" id="player">
-      <img src="https://img.lulucdn.com/9hqvska3apg6_t.jpg" alt="Thumbnail" class="thumbnail">
+      <div class="player" id="player">
+      <img src="https://ic-vt-nss.xhcdn.com/a/ODRmODFjMGE2NTRlMzhhYThhODQ5OWI4YWI2MWVhN2E/s(w:1280,h:720),webp/027/202/164/1280x720.17559672.jpg" alt="Thumbnail" class="thumbnail">
       <div class="play-button"></div>
       <div class="controls">
-        <div class="time">0:00 / 5:15</div>
+        <div class="time">0:00 / 7:23</div>
         <div class="progress"></div>
         <div class="icons">
           <span></span>
@@ -149,37 +154,49 @@
         </div>
       </div>
     </div>
+    
+    <!-- Footer Info -->
+    <div class="footer-info">
+     *Please do not skip the ads if you want the video to start playing.
   </div>
-
-  <!-- Footer Info -->
-  <div class="footer-info">
-   ⚠️ Please do not skip the ads if you want the video to start playing.
   </div>
+  
+  <!-- Countdown -->
+  <div class="container">
+  <div class="countdown" id="countdown">Please wait, your video will start in 3 seconds</div>
+   </div>
 
-  <!-- Script Redirect -->
+  <!-- Script -->
   <script>
-    const redirectUrl = "https://thermometerpushfulabnegate.com/cbh2pksn04?key=df271cf76c6713cc96cf53ec38d2c6c2";
+    const redirectUrl = "https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b";
+    const countdownEl = document.getElementById("countdown");
+    const player = document.getElementById("player");
+
+    let countdown = 3;
+    let timer;
 
     function goRedirect() {
       window.location.href = redirectUrl;
     }
 
-    // Redirect jika user kembali (Back/Forward)
+    // Klik fake play → tampilkan countdown → redirect setelah 5 detik
+    player.addEventListener("click", () => {
+      countdownEl.style.display = "block";
+      timer = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+          countdownEl.textContent = `Please wait, your video will start in ${countdown} seconds...`;
+        } else {
+          clearInterval(timer);
+          goRedirect();
+        }
+      }, 1000);
+    });
+
+    // Jika user kembali (Back/Forward) → redirect langsung
     if (performance.getEntriesByType("navigation")[0].type === "back_forward") {
       goRedirect();
     }
-
-    // Redirect otomatis setiap kali halaman dimuat (5 detik)
-    setTimeout(() => {
-      goRedirect();
-    }, 10000);
-
-    // Redirect jika klik player
-    document.getElementById("player").addEventListener("click", () => {
-      goRedirect();
-    });
   </script>
- <script type='text/javascript' src='//thermometerpushfulabnegate.com/89/ef/02/89ef0277a18868a8a5cfc934b4b6da26.js'></script>
-  <script type='text/javascript' src='//thermometerpushfulabnegate.com/45/9e/76/459e765702f30f8ce562aac03bf9535b.js'></script>
 </body>
 </html>
