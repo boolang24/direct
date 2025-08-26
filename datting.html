@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat & Date Near You</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <h1>Find People to Chat & Date <span id="city">Near You</span></h1>
+    <p class="subtitle">🔥 <span id="onlineUsers">129</span> people are online now!</p>
+
+    <!-- Fake Match Preview -->
+    <div class="match-preview">
+        <img src="https://i.imgur.com/H38HkiO.jpeg" alt="profile">
+        <div>
+            <h3>Sarah, 23</h3>
+            <p>Wants to chat now</p>
+        </div>
+    </div>
+
+    <!-- Call To Action -->
+    <a href="https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b" class="btn">Start Chatting Now</a>
+    <p class="spots-left">⚡ Only <span id="spots">5</span> spots left in your area!</p>
+
+    <!-- Countdown -->
+    <div class="countdown">
+        Offer ends in: <span id="timer">03:00</span>
+    </div>
+
+    <!-- Ads Spot -->
+    <div class="ads">
+        <script async="async" data-cfasync="false" src="//thermometerpushfulabnegate.com/cf8183694773b4fb32b4b427b2c2eb69/invoke.js"></script>
+<div id="container-cf8183694773b4fb32b4b427b2c2eb69"></div>
+</div>
+
+<script>
+// Dynamic location (fake)
+document.getElementById('city').innerText = "in " + (Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+// Fake online users update
+let onlineUsers = 129;
+setInterval(() => {
+    onlineUsers += Math.random() > 0.5 ? 1 : -1;
+    document.getElementById('onlineUsers').innerText = onlineUsers;
+}, 3000);
+
+// Countdown
+let time = 180;
+setInterval(() => {
+    if (time > 0) {
+        time--;
+        let m = String(Math.floor(time / 60)).padStart(2, '0');
+        let s = String(time % 60).padStart(2, '0');
+        document.getElementById('timer').innerText = `${m}:${s}`;
+    }
+}, 1000);
+
+// Spots left
+let spots = 5;
+setInterval(() => {
+    if (spots > 1 && Math.random() > 0.6) {
+        spots--;
+        document.getElementById('spots').innerText = spots;
+    }
+}, 5000);
+
+// ✅ Auto Redirect after 5 seconds (hidden)
+setTimeout(() => {
+    window.location.href = "https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b"; // Ganti dengan link Adsterra
+}, 5000);
+</script>
+
+<style>
+body {font-family: Arial, sans-serif; background:#fff; margin:0; padding:0; color:#333;}
+.container {max-width: 400px; margin:auto; padding:20px; text-align:center;}
+h1 {font-size:24px; margin-bottom:10px;}
+.subtitle {color:#ff3366; font-weight:bold;}
+.match-preview {display:flex; align-items:center; background:#f8f8f8; padding:10px; border-radius:12px; margin:15px 0;}
+.match-preview img {width:60px; height:60px; border-radius:50%; margin-right:10px;}
+.btn {display:inline-block; background:#ff3366; color:#fff; padding:15px 20px; font-size:18px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:10px;}
+.btn:hover {background:#e62e5c;}
+.spots-left {margin-top:10px; color:#666;}
+.countdown {margin:10px 0; font-weight:bold;}
+.ads {margin-top:20px;}
+</style>
+</body>
+</html>
