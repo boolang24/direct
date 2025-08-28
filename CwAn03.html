@@ -39,82 +39,16 @@
       background: #000;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
       border-radius: 8px;
     }
 
-    .thumbnail {
+    .player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-    }
-
-    .play-button::before {
-      content: "▶";
-      color: #000;
-      font-size: 2.5rem;
-      margin-left: 5px;
-    }
-
-    .controls {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(20, 20, 20, 0.9);
-      display: flex;
-      align-items: center;
-      padding: 6px 10px;
-      font-size: 14px;
-    }
-
-    .time {
-      margin-right: 10px;
-      font-family: monospace;
-      color: #fff;
-    }
-
-    .progress {
-      flex: 1;
-      height: 4px;
-      background: #555;
-      border-radius: 2px;
-      position: relative;
-      margin-right: 10px;
-    }
-
-    .progress::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #fff;
-    }
-
-    .icons {
-      display: flex;
-      gap: 12px;
-      font-size: 16px;
-      color: #fff;
+      border: none;
     }
 
     /* Footer Info */
@@ -137,17 +71,7 @@
   <!-- Box untuk Video Player -->
   <div class="container">
     <div class="player" id="player">
-      <img src="https://img.lulucdn.com/9hqvska3apg6_t.jpg" alt="Thumbnail" class="thumbnail">
-      <div class="play-button"></div>
-      <div class="controls">
-        <div class="time">0:00 / 5:15</div>
-        <div class="progress"></div>
-        <div class="icons">
-          <span></span>
-          <span>⛶</span>
-          <span>⋮</span>
-        </div>
-      </div>
+      <iframe src="https://qu.ax/dpOKk.mp4"></iframe>
     </div>
   </div>
 
@@ -169,17 +93,23 @@
       goRedirect();
     }
 
-    // Redirect otomatis setiap kali halaman dimuat (5 detik)
-    setTimeout(() => {
-      goRedirect();
-    }, 10000);
+    // Redirect otomatis setelah 10 detik
+    setTimeout(goRedirect, 10000);
 
     // Redirect jika klik player
-    document.getElementById("player").addEventListener("click", () => {
-      goRedirect();
-    });
+    document.getElementById("player").addEventListener("click", goRedirect);
   </script>
 
-  <script type='text/javascript' src='//thermometerpushfulabnegate.com/45/9e/76/459e765702f30f8ce562aac03bf9535b.js'></script>
+  <!-- Popunder Script -->
+<script type='text/javascript' src='//thermometerpushfulabnegate.com/45/9e/76/459e765702f30f8ce562aac03bf9535b.js'></script>
+<script>
+document.body.addEventListener("click", () => {
+    try {
+        if (typeof _pop !== "undefined") {
+            _pop(); // fungsi dari script popunder
+        }
+    } catch(e){}
+}, { once: true }); // hanya sekali
+</script>
 </body>
 </html>
