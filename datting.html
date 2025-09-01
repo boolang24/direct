@@ -1,90 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chat & Date Near You</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet & Chat – Friendly Connections Near You</title>
+  <meta name="description" content="Friendly dating landing page for men. Genuine chats, respectful vibes, and quick start." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Meet & Chat – Friendly Connections" />
+  <meta property="og:description" content="Say hi in one tap. 18+ only. No complicated forms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Meet+%26+Chat" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; --card:#101a32; --muted:#9fb0ca; --text:#e8eef9;
+      --accent:#22c55e; --accent2:#60a5fa; --ring:rgba(96,165,250,.35)
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Roboto,Arial,sans-serif;
+      background: radial-gradient(1100px 520px at 85% -10%,#1e293b 0%,transparent 60%), linear-gradient(180deg,#0b1220,#0b1220);
+      color:var(--text); -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:980px;margin:0 auto;padding:24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#22c55e,#60a5fa)}
+    .brand h1{font-size:18px;margin:0}
+    .nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:14px}
+    .nav a:hover{color:#cfe0ff}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:36px 0}
+    .headline{font-size:36px;font-weight:800;margin:0 0 12px;line-height:1.15}
+    .sub{color:#cfe0ff;margin:0 0 18px}
+    .bullets{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+    .chip{display:inline-flex;gap:6px;align-items:center;padding:6px 10px;border:1px solid #1f2a44;border-radius:999px;background:#0c162b;color:#a9b8d6;font-size:13px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;cursor:pointer;text-decoration:none}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),#16a34a);color:#052e16;box-shadow:0 10px 28px rgba(34,197,94,.25)}
+    .btn-outline{background:transparent;border:1px solid #334155;color:#e5edff}
+    .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+
+    .preview{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid #1f2a44}
+    .preview img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(1.05)}
+    .play{position:absolute;inset:0;display:grid;place-items:center}
+    .play button{border:0;border-radius:999px;width:74px;height:74px;background:rgba(15,23,42,.7);backdrop-filter:blur(6px);cursor:pointer}
+    .play svg{transform:translateX(2px)}
+
+    .section{padding:26px 0}
+
+    .profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid #1f2a44;border-radius:14px;overflow:hidden}
+    .card img{display:block;width:100%;height:240px;object-fit:cover}
+    .meta{padding:12px}
+    .meta h3{margin:0 0 6px;font-size:16px}
+    .meta p{margin:0;color:#cfe0ff;font-size:13px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .tag{border:1px solid #23304d;background:#0c162b;color:#9fb0ca;border-radius:999px;padding:4px 8px;font-size:12px}
+
+    .banner{
+      background:linear-gradient(90deg,#0e1a33,#0c162b);
+      border:1px solid #1f2a44;border-radius:16px;padding:18px;text-align:center
+    }
+
+    footer{padding:32px 0;color:#9fb0ca;font-size:13px;text-align:center}
+    footer a{color:#9fb0ca}
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .headline{font-size:28px}
+      .profiles{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 520px){
+      .profiles{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <!-- Header -->
-    <h1>Find People to Chat & Date <span id="city">Near You</span></h1>
-    <p class="subtitle">🔥 <span id="onlineUsers">129</span> people are online now!</p>
+  <div class="container">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Meet & Chat</h1>
+      </div>
+      <div>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+    </nav>
 
-    <!-- Fake Match Preview -->
-    <div class="match-preview">
-        <img src="https://i.imgur.com/H38HkiO.jpeg" alt="profile">
-        <div>
-            <h3>Sarah, 23</h3>
-            <p>Wants to chat now</p>
+    <header class="hero">
+      <div>
+        <h2 class="headline">Meet friendly women <span id="city">near you</span> — say hi in one tap.</h2>
+        <p class="sub">Genuine chats. Respectful community. No complicated forms. 18+ only.</p>
+        <div class="bullets">
+          <span class="chip">🔒 Discreet & privacy-friendly</span>
+          <span class="chip">⚡ Quick start</span>
+          <span class="chip">✅ No subscriptions</span>
         </div>
+        <div class="cta-row">
+          <!-- Ganti DIRECTLINK_URL dengan shortlink/redirect Adsterra kamu -->
+          <a class="btn btn-primary" href="https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b" rel="nofollow noopener" target="_blank" data-track="primary-cta">Start Chat</a>
+          <a class="btn btn-outline" href="#profiles" data-track="browse-profiles">Browse Profiles</a>
+        </div>
+      </div>
+
+      <div class="preview" aria-label="Preview">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1600&auto=format&fit=crop"
+             alt="Friendly woman smiling at her phone" loading="lazy" />
+        <div class="play">
+          <button aria-label="Open chat preview" onclick="window.open('https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b','_blank','noopener')">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#22c55e" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section id="how" class="section">
+      <div class="banner">
+        <h3 style="margin:0 0 6px">How it works</h3>
+        <p style="margin:0;color:#cfe0ff">Pick a profile → say hi → keep it kind. External chats open in a new tab.</p>
+      </div>
+    </section>
+
+    <section id="profiles" class="section" aria-label="Popular profiles">
+      <h3 style="margin:0 0 12px">Popular right now</h3>
+      <div class="profiles">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200&auto=format&fit=crop" alt="Profile preview" loading="lazy" />
+          <div class="meta">
+            <h3>Sophia, 24</h3>
+            <p>“Kind vibes only. Coffee first?”</p>
+            <div class="tags"><span class="tag">Online</span><span class="tag">Verified feel</span><span class="tag">2 km</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="Profile preview" loading="lazy" />
+          <div class="meta">
+            <h3>Emily, 27</h3>
+            <p>Dog mom • loves beach walks</p>
+            <div class="tags"><span class="tag">New</span><span class="tag">Active</span><span class="tag">5 km</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Profile preview" loading="lazy" />
+          <div class="meta">
+            <h3>Olivia, 23</h3>
+            <p>Bookstore dates? yes please.</p>
+            <div class="tags"><span class="tag">Trending</span><span class="tag">Active</span><span class="tag">3 km</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="banner">
+        <h3 style="margin:0 0 6px">Ready when you are</h3>
+        <p style="margin:0 0 12px; color:#cfe0ff">No sign-up needed. Be respectful. 18+ only.</p>
+        <a class="btn btn-primary" href="https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b" rel="nofollow noopener" target="_blank" data-track="secondary-cta">Start Now</a>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="profiles" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card" style="padding:16px">
+          <h3 style="margin:0 0 6px">Is it free?</h3>
+          <p style="margin:0;color:#cfe0ff">You can browse and start for free. Some links may be sponsored.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <h3 style="margin:0 0 6px">Is it safe?</h3>
+          <p style="margin:0;color:#cfe0ff">We avoid invasive trackers. External chats open in a new tab.</p>
+        </div>
+        <div class="card" style="padding:16px">
+          <h3 style="margin:0 0 6px">Any rules?</h3>
+          <p style="margin:0;color:#cfe0ff">Be kind. No explicit content hosted here. 18+ only.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="privacy">
+      <small>© <span id="y"></span> Meet & Chat. <a href="#" onclick="openModal('privacy');return false">Privacy</a> · <a href="#" onclick="openModal('terms');return false">Terms</a></small>
+    </footer>
+  </div>
+
+  <!-- Privacy/Terms modals -->
+  <dialog id="modal-privacy" style="border:none;border-radius:16px;padding:0;max-width:720px;width:90%">
+    <div style="padding:18px;background:#0b1220;color:#e2e8f0;border:1px solid #1f2a44;border-radius:16px">
+      <h3 style="margin-top:0">Privacy</h3>
+      <p>We use basic, cookieless click metrics to improve the experience. External links may be sponsored and open in a new tab.</p>
+      <div style="display:flex;justify-content:flex-end"><button class="btn btn-outline" onclick="closeModal('privacy')">Close</button></div>
     </div>
-
-    <!-- Call To Action -->
-    <a href="https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b" class="btn">Start Chatting Now</a>
-    <p class="spots-left">⚡ Only <span id="spots">5</span> spots left in your area!</p>
-
-    <!-- Countdown -->
-    <div class="countdown">
-        Offer ends in: <span id="timer">03:00</span>
+  </dialog>
+  <dialog id="modal-terms" style="border:none;border-radius:16px;padding:0;max-width:720px;width:90%">
+    <div style="padding:18px;background:#0b1220;color:#e2e8f0;border:1px solid #1f2a44;border-radius:16px">
+      <h3 style="margin-top:0">Terms</h3>
+      <p>By using this site you agree that some links are sponsored. We do not host explicit content. 18+ only.</p>
+      <div style="display:flex;justify-content:flex-end"><button class="btn btn-outline" onclick="closeModal('terms')">Close</button></div>
     </div>
+  </dialog>
 
-    <!-- Ads Spot -->
-    <div class="ads">
-        <script async="async" data-cfasync="false" src="//thermometerpushfulabnegate.com/cf8183694773b4fb32b4b427b2c2eb69/invoke.js"></script>
-<div id="container-cf8183694773b4fb32b4b427b2c2eb69"></div>
-</div>
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-<script>
-// Dynamic location (fake)
-document.getElementById('city').innerText = "in " + (Intl.DateTimeFormat().resolvedOptions().timeZone);
+    // Simple modal helpers
+    function openModal(which){ const el = document.getElementById('modal-'+which); if(el && el.showModal) el.showModal(); }
+    function closeModal(which){ const el = document.getElementById('modal-'+which); if(el && el.close) el.close(); }
 
-// Fake online users update
-let onlineUsers = 129;
-setInterval(() => {
-    onlineUsers += Math.random() > 0.5 ? 1 : -1;
-    document.getElementById('onlineUsers').innerText = onlineUsers;
-}, 3000);
+    // Minimal click tracking (no cookies) – console only
+    (function(){
+      const send = (label)=>{ try{ console.debug('track', {label, ts:Date.now(), ua:navigator.userAgent}); }catch(e){} };
+      document.querySelectorAll('[data-track]').forEach(el=>el.addEventListener('click',()=>send(el.getAttribute('data-track'))));
+    })();
 
-// Countdown
-let time = 180;
-setInterval(() => {
-    if (time > 0) {
-        time--;
-        let m = String(Math.floor(time / 60)).padStart(2, '0');
-        let s = String(time % 60).padStart(2, '0');
-        document.getElementById('timer').innerText = `${m}:${s}`;
-    }
-}, 1000);
+    // OPTIONAL: Show city from your IP endpoint (uncomment & adjust)
+    // fetch('https://my-api-nu-three.vercel.app/api/ip').then(r=>r.json()).then(d=>{
+    //   if(d && d.city){ document.getElementById('city').textContent = 'in '+d.city; }
+    // }).catch(()=>{});
 
-// Spots left
-let spots = 5;
-setInterval(() => {
-    if (spots > 1 && Math.random() > 0.6) {
-        spots--;
-        document.getElementById('spots').innerText = spots;
-    }
-}, 5000);
-
-// ✅ Auto Redirect after 5 seconds (hidden)
-setTimeout(() => {
-    window.location.href = "https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b"; // Ganti dengan link Adsterra
-}, 5000);
-</script>
-
-<style>
-body {font-family: Arial, sans-serif; background:#fff; margin:0; padding:0; color:#333;}
-.container {max-width: 400px; margin:auto; padding:20px; text-align:center;}
-h1 {font-size:24px; margin-bottom:10px;}
-.subtitle {color:#ff3366; font-weight:bold;}
-.match-preview {display:flex; align-items:center; background:#f8f8f8; padding:10px; border-radius:12px; margin:15px 0;}
-.match-preview img {width:60px; height:60px; border-radius:50%; margin-right:10px;}
-.btn {display:inline-block; background:#ff3366; color:#fff; padding:15px 20px; font-size:18px; border-radius:10px; text-decoration:none; font-weight:bold; margin-top:10px;}
-.btn:hover {background:#e62e5c;}
-.spots-left {margin-top:10px; color:#666;}
-.countdown {margin:10px 0; font-weight:bold;}
-.ads {margin-top:20px;}
-</style>
+    // OPTIONAL: First-click once/day opens sponsor in new tab (respectful mode)
+    // (disabled by default; uncomment to enable)
+    /*
+    (function(){
+      const KEY='sponsor_opened_day';
+      const today=new Date().toISOString().slice(0,10);
+      const shouldOpen=()=>localStorage.getItem(KEY)!==today;
+      const mark=()=>localStorage.setItem(KEY,today);
+      const openSponsor=()=>window.open('https://thermometerpushfulabnegate.com/cbh2pksn04?key=459e765702f30f8ce562aac03bf9535b','_blank','noopener');
+      document.addEventListener('click',e=>{
+        if(!e.target.closest('a,button')) return;
+        if(shouldOpen()){ try{ openSponsor(); mark(); }catch(_){} }
+      },{capture:true});
+    })();
+    */
+  </script>
 </body>
 </html>
